@@ -1,10 +1,19 @@
-const formData = new FormData(event.currentTarget);
-  const data = Object.fromEntries(formData.entries());
-  data.email = data.email.trim().toLowerCase();
-for (const [key, value] of Object.entries(data)) {
-    if (value !== '') continue;
-    elements[key].focus();
-    alert('All fields have to be filled in');
-    return;
+const form = document.querySelector('.login-form')
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(event) {
+  event.preventDefault()
+  const {
+    elements: { email, password }
+  } = event.currentTarget;
+
+  if (email.value === "" || password.value === "") {
+    alert("Please fill in all the fields!");
   }
-  console.log(data);
+
+  console.log(`Email: ${email.value}, Password: ${password.value}`);
+  event.currentTarget.reset();
+}
+
+
+  
