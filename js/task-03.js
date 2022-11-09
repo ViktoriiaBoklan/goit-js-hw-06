@@ -14,17 +14,9 @@ const images = [
 ];
 
 
-const ulEl = document.querySelector('.gallery');
-ulEl.style.justifycontent = 'space-between';
-
-const createListItem = images.map(image => {
-  const liEl = document.createElement('li');
-  liEl.style.listStyle = 'none';
-
-  liEl.insertAdjacentHTML(
-    'afterbegin', `<img src= '${image.url}' alt='${image.alt}' width='240px'>`,
-  );
-  return liEl;
-});
-
-ulEl.append(...createListItem);
+images.forEach(img => {
+    const ulList = document.querySelector('.gallery');
+    ulList.insertAdjacentHTML('beforeend', `<img src=${img.url} alt=${img.alt} class=picture width=300px>`);
+    ulList.classList.add("flexGrid");
+}
+);
