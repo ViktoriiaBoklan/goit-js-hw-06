@@ -13,10 +13,12 @@ const images = [
   },
 ];
 
+const listEl = document.querySelector('.gallery');
+console.log(listEl)
 
-images.forEach(img => {
-    const ulList = document.querySelector('.gallery');
-    ulList.insertAdjacentHTML('beforeend', `<img src=${img.url} alt=${img.alt} class=picture width=300px>`);
-    ulList.classList.add("flexGrid");
-}
-);
+const imageListEl = images.map((images) => `<li class = item> <img class = img src = ${images.url} alt = ${images.alt}>img >li`)
+const component = imageListEl.join("")
+
+listEl.insertAdjacentHTML('afterbegin', component)
+
+
